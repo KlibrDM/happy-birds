@@ -46,6 +46,11 @@ void draw(){
     //Draw Seed
     seed.drawSeed();
     
+    //Draw shooting line (behind bird)
+    if(Game.isPlayerAiming){
+      bird.drawShootingLine();
+    }
+    
     //Draw Bird
     bird.drawBird();
     

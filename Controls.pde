@@ -5,6 +5,7 @@ void mousePressed(){
   if(!Game.controlsLocked){
     lastX = mouseX;
     lastY = mouseY;
+    Game.isPlayerAiming = true;
   }
 }
 
@@ -19,5 +20,6 @@ void mouseReleased(){
   if(!Game.controlsLocked){
     distX = distY = 0.0;
     bird.shoot();
+    Game.isPlayerAiming = false;
   }
 }

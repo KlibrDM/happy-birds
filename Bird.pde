@@ -86,6 +86,14 @@ public class Bird{
     Game.controlsLocked = true;
   }
   
+  public void drawShootingLine(){
+    stroke(255);
+    strokeWeight(4);
+    float lineEndX = this.anchorX+(this.anchorX-this.x)*2.5;
+    float lineEndY = this.anchorY+(this.anchorY-this.y)*2.5;
+    line(this.x, this.y, lineEndX, lineEndY);
+  }
+  
   public void drawBird(){
     imageMode(CENTER);
     image(this.birdImage, this.x, this.y);
