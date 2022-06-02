@@ -26,6 +26,10 @@ void setup(){
   seed.seedImage = loadImage("data/seed.png");
   seed.seedImage.resize(int(Config.seedSize/1.3), Config.seedSize);
   
+  //Boom Image
+  seed.boomImage = loadImage("data/boom.png");
+  seed.boomImage.resize(int(Config.seedSize*1.75), int(Config.seedSize*1.75));
+  
   //Background Image
   backgroundImage = loadImage("data/bg.jpg");
   backgroundImage.resize(width, height);
@@ -49,7 +53,9 @@ void draw(){
   
   if(Game.lives >= 0){
     //Draw Seed
-    seed.drawSeed();
+    if(!bird.targetHit){
+      seed.drawSeed();
+    }
     
     //Draw shooting line (behind bird)
     if(Game.isPlayerAiming){
@@ -69,6 +75,10 @@ void draw(){
       
       //Check for hit
       bird.checkForHit();
+      
+      if(bird.targetHit){
+        seed.drawBoom();
+      }
     }
   }
   else{

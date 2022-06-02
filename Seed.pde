@@ -2,6 +2,7 @@ public class Seed{
   public float x;
   public float y;
   PImage seedImage;
+  PImage boomImage;
  
   Seed(){}
   
@@ -13,5 +14,10 @@ public class Seed{
   void drawSeed(){
     imageMode(CENTER);
     image(this.seedImage, this.x, this.y);
+  }
+  
+  void drawBoom(){
+    imageMode(CENTER);
+    image(this.boomImage, this.x, this.y);
   }
 }
