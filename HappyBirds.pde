@@ -1,5 +1,6 @@
 PImage backgroundImage;
 PImage slingshotImage;
+PFont textFont;
 
 Bird bird = new Bird();
 Seed seed = new Seed();
@@ -9,6 +10,9 @@ int resetStartTime = 0;
 
 void setup(){
   size(1280, 720);
+  
+  //Load Font
+  textFont = createFont("data/Hujan.ttf", 128);
   
   //Set positions
   bird.setPos(80, height-height/4);
@@ -35,7 +39,8 @@ void draw(){
   background(backgroundImage);
   
   //UI
-  fill(0);
+  fill(20);
+  textFont(textFont);
   textSize(24);
   livesLeftText = Game.lives > 0 ? Game.lives : 0;
   textAlign(LEFT);
