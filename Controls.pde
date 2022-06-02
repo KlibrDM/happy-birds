@@ -1,5 +1,11 @@
-int lastX, lastY;
+float lastX, lastY;
 float distX = 0.0, distY = 0.0;
+
+void drawShootingCircle(){
+  strokeWeight(1);
+  fill(120,120,120,100);
+  circle(lastX,lastY, 30);
+}
 
 void mousePressed(){
   if(!Game.controlsLocked){
@@ -11,8 +17,8 @@ void mousePressed(){
 
 void mouseDragged(){
   if(!Game.controlsLocked){
-    distX = radians(mouseX - lastX)/20;
-    distY = radians(lastY - mouseY)/20;
+    distX = (mouseX - lastX)/200;
+    distY = (lastY - mouseY)/200;
     bird.moveSlingPos(distX, distY);
   }
 }

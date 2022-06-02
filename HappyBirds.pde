@@ -53,6 +53,7 @@ void draw(){
     
     //Draw shooting line (behind bird)
     if(Game.isPlayerAiming){
+      drawShootingCircle();
       bird.drawShootingLine();
     }
     
