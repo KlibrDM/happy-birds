@@ -50,7 +50,7 @@ public class Bird{
     this.forceY -= 1;
     
     //If shoot ends (goes outside of the screen)
-    if(this.x > width + Config.birdSize || this.y > height + Config.birdSize){
+    if(this.x > width + Config.birdSize + 800 || this.y > height + Config.birdSize + 800){
       if(this.targetHit){
         Game.lives += 4;
         Game.hits++;
