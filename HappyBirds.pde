@@ -34,6 +34,9 @@ void draw(){
     //Draw Seed
     if(!bird.targetHit){
       seed.drawSeed();
+      if(seed.isSeedMoving){
+        seed.moveSeed();
+      }
     }
     
     //Draw shooting line (behind bird)
