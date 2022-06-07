@@ -20,6 +20,7 @@ void mouseDragged(){
     distX = (mouseX - lastX)/200;
     distY = (lastY - mouseY)/200;
     bird.moveSlingPos(distX, distY);
+    Game.isPlayerAiming = true;
   }
 }
 void mouseReleased(){
