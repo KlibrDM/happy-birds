@@ -12,7 +12,7 @@ void loadData(){
   
   //Boom Image
   seed.boomImage = loadImage("data/boom.png");
-  seed.boomImage.resize(int(Config.seedSize*1.75), int(Config.seedSize*1.75));
+  seed.boomImage.resize(Config.boomSize, Config.boomSize);
   
   //Background Image
   backgroundImage = loadImage("data/bg.jpg");
@@ -25,4 +25,8 @@ void loadData(){
   //Plank Image
   plank.plankImage = loadImage("data/plank.png");
   plank.plankImage.resize(Config.plankSize, Config.plankSize*3);
+  
+  //Boom Image
+  plank.boomImage = loadImage("data/plankBoom.png");
+  plank.boomImage.resize(Config.boomSize, Config.boomSize);
 }

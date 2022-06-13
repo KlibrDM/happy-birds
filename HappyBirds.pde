@@ -69,6 +69,10 @@ void draw(){
       if(bird.targetHit){
         seed.drawBoom();
       }
+      
+      if(bird.barricadeHit){
+        plank.drawBoom();
+      }
     }
   }
   else{

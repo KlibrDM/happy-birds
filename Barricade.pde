@@ -1,7 +1,10 @@
 public class Barricade{
   public float x;
   public float y;
+  public float boomX;
+  public float boomY;
   PImage plankImage;
+  PImage boomImage;
  
   Barricade(){}
   
@@ -13,5 +16,10 @@ public class Barricade{
   void drawPlank(){
     imageMode(CENTER);
     image(this.plankImage, this.x, this.y);
+  }
+  
+  void drawBoom(){
+    imageMode(CENTER);
+    image(this.boomImage, this.boomX, this.boomY);
   }
 }

@@ -7,6 +7,7 @@ public class Bird{
   public float forceY = 0;
   public boolean isShooting = false;
   public boolean targetHit = false;
+  public boolean barricadeHit = false;
   PImage birdImage;
   
   Bird(){}
@@ -59,6 +60,7 @@ public class Bird{
       }
       this.isShooting = false;
       this.targetHit = false;
+      this.barricadeHit = false;
       Game.controlsLocked = false;
       Game.lives--;
       this.resetPos();
@@ -97,6 +99,14 @@ public class Bird{
       if(this.forceY > 10){
         this.forceY /= 2;
       }
+      
+      //Set boom position (only once)
+      if(!this.barricadeHit){
+        plank.boomX = this.x + Config.plankSize / 3;
+        plank.boomY = this.y;
+      }
+      
+      this.barricadeHit = true;
     }
   }
   
