@@ -83,30 +83,32 @@ public class Bird{
   }
   
   public void checkForBarricadeHit(){
-    if(this.x + this.forceX > plank.x - Config.plankSize
-    && this.x + this.forceX < plank.x + Config.plankSize
-    && this.y > plank.y - Config.plankSize * 2
-    && this.y < plank.y + Config.plankSize * 2){
-      //Force move the bird next to the plank
-      if(this.x < plank.x){
-        this.x = plank.x - Config.plankSize;
+    if(plank.isBarricadeActive){
+      if(this.x + this.forceX > plank.x - Config.plankSize
+      && this.x + this.forceX < plank.x + Config.plankSize
+      && this.y > plank.y - Config.plankSize * 2
+      && this.y < plank.y + Config.plankSize * 2){
+        //Force move the bird next to the plank
+        if(this.x < plank.x){
+          this.x = plank.x - Config.plankSize;
+        }
+        
+        //Stop bird X axis movement
+        this.forceX = 0;
+        
+        //Slow down Y movement
+        if(this.forceY > 10){
+          this.forceY /= 2;
+        }
+        
+        //Set boom position (only once)
+        if(!this.barricadeHit){
+          plank.boomX = this.x + Config.plankSize / 3;
+          plank.boomY = this.y;
+        }
+        
+        this.barricadeHit = true;
       }
-      
-      //Stop bird X axis movement
-      this.forceX = 0;
-      
-      //Slow down Y movement
-      if(this.forceY > 10){
-        this.forceY /= 2;
-      }
-      
-      //Set boom position (only once)
-      if(!this.barricadeHit){
-        plank.boomX = this.x + Config.plankSize / 3;
-        plank.boomY = this.y;
-      }
-      
-      this.barricadeHit = true;
     }
   }
   

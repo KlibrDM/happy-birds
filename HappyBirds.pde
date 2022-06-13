@@ -54,7 +54,9 @@ void draw(){
     image(slingshotImage, 150, height-height/5);
     
     //Draw barricade plank
-    plank.drawPlank();
+    if(plank.isBarricadeActive){
+      plank.drawPlank();
+    }
     
     if(bird.isShooting){
       //Move bird when shooting
