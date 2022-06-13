@@ -55,6 +55,7 @@ public class Bird{
         Game.lives += 4;
         Game.hits++;
         seed.setRandomPos();
+        plank.setRandomPos();
       }
       this.isShooting = false;
       this.targetHit = false;
@@ -76,6 +77,26 @@ public class Bird{
     && this.y > seed.y - Config.seedHitpoint
     && this.y < seed.y + Config.seedHitpoint){
       this.targetHit = true;
+    }
+  }
+  
+  public void checkForBarricadeHit(){
+    if(this.x + this.forceX > plank.x - Config.plankSize
+    && this.x + this.forceX < plank.x + Config.plankSize
+    && this.y > plank.y - Config.plankSize * 2
+    && this.y < plank.y + Config.plankSize * 2){
+      //Force move the bird next to the plank
+      if(this.x < plank.x){
+        this.x = plank.x - Config.plankSize;
+      }
+      
+      //Stop bird X axis movement
+      this.forceX = 0;
+      
+      //Slow down Y movement
+      if(this.forceY > 10){
+        this.forceY /= 2;
+      }
     }
   }
   

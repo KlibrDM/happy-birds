@@ -21,4 +21,8 @@ void loadData(){
   //Slingshot Image
   slingshotImage = loadImage("data/slingshot.png");
   slingshotImage.resize(Config.slingshotSize, Config.slingshotSize*2);
+  
+  //Plank Image
+  plank.plankImage = loadImage("data/plank.png");
+  plank.plankImage.resize(Config.plankSize, Config.plankSize*3);
 }

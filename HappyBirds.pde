@@ -4,6 +4,7 @@ PFont textFont;
 
 Bird bird = new Bird();
 Seed seed = new Seed();
+Barricade plank = new Barricade();
 
 int livesLeftText = 0;
 int resetStartTime = 0;
@@ -14,6 +15,7 @@ void setup(){
   //Set positions
   bird.setPos(80, height-height/4);
   seed.setRandomPos();
+  plank.setRandomPos();
   
   loadData();
 }
@@ -51,12 +53,18 @@ void draw(){
     //Draw Slingshot
     image(slingshotImage, 150, height-height/5);
     
+    //Draw barricade plank
+    plank.drawPlank();
+    
     if(bird.isShooting){
       //Move bird when shooting
       bird.shootMove();
       
       //Check for hit
       bird.checkForHit();
+      
+      //Check for barricade block
+      bird.checkForBarricadeHit();
       
       if(bird.targetHit){
         seed.drawBoom();
